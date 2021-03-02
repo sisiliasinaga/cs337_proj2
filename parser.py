@@ -6,6 +6,9 @@ nltk.download('averaged_perceptron_tagger')
 from nltk import pos_tag, word_tokenize
 import re
 import string
+from transform import replace_ingredients, replace_instructions
+from vegetarian_transform import vegetarian
+from to_healthy_transform import to_healthy
 
 def convertToFraction(test):
     fractions = {
@@ -209,12 +212,22 @@ def getMethods(directions):
 
     return resultList
 
-def main(url):
+def main(url, transform):
+    if transform == "vegetarian":
+        transform_dict = vegetarian
+    elif transform == "healthy":
+        transform_dict = to_healthy
+    else:
+        raise Exception("Transform does not exist")
+
     recipeSoup = getRecipe(url)
     steps = getSteps(recipeSoup)
-    getIngredients(recipeSoup)
+    print(replace_instructions(steps, transform_dict))
+    ingredients = getIngredients(recipeSoup)
+    print(replace_ingredients(ingredients, transform_dict))
     recipeSoup = getRecipe(url)
 
 if __name__ == '__main__':
     recipeUrl = input('Please enter a URL for a recipe from AllRecipes.com: ')
-    main(recipeUrl)
+    transformType = input('Please enter what transformation you would like (vegetarian or healthy): ')
+    main(recipeUrl, transformType)
