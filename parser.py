@@ -105,7 +105,7 @@ def getIngredientParts(ingredients):
                     'pound', 'pounds', 'slice', 'slices', 'packet', 'packets', 'cube', 'cubes', 'quart', 'quarts',
                     'halves', 'jar', 'jars', 'inch', 'inches']
 
-    descriptors = ['ground', 'all-purpose', 'extra-virgin', 'unsweetened']
+    descriptors = ['ground', 'all-purpose', 'extra-virgin', 'unsweetened', 'provolone']
 
     keywords = ['black']
 
@@ -129,16 +129,27 @@ def getIngredientParts(ingredients):
                 continue
 
             if test[i][1] == 'CD':
-                x = convert_to_float(text[i])
-                quantity += x
+                try:
+                    x = convert_to_float(text[i])
+                    quantity += x
+                except:
+                    if text[i] in descriptors:
+                        if descriptors != "":
+                            descriptor += ' ' + text[i]
+                        else:
+                            descriptor += text[i]
 
             else:
                 if text[i] in measurements:
                     measurement += text[i]
                 else:
                     if text[i] in keywords:
-                        ingredientName += text[i] + ' ' + text[i + 1]
-                        shouldContinue = True
+                        if ingredientName != "":
+                            ingredientName += ' and ' + text[i] + ' ' + text[i + 1]
+                            shouldContinue = True
+                        else:
+                            ingredientName += text[i] + ' ' + text[i + 1]
+                            shouldContinue = True
                     elif text[i] in descriptors:
                         if descriptors != "":
                             descriptor += ' ' + text[i]
@@ -231,50 +242,83 @@ def getMethods(directions):
     return resultList
 
 def main(url, transform):
-    if transform == "vegetarian":
-        transform_dict = vegetarian
-    elif transform == "healthy":
-        transform_dict = to_healthy
-    elif transform == "Chinese":
-        transform_dict = to_chinese
-    elif transform == "Mexican":
-        transform_dict = to_mexican
-    else:
-        raise Exception("Transform does not exist")
+    stillRunning = True
+    if url == '0':
+        stillRunning = False
 
-    recipeSoup = getRecipe(url)
-    title = getTitle(recipeSoup)
-    ingredients = getIngredients(recipeSoup)[0]
-    steps = getSteps(recipeSoup)
-    tools = getTools(steps)
-    methods = getMethods(steps)
+    while stillRunning:
 
-    print("Recipe Title: " + title + '\n')
+        if transform == "vegetarian":
+            transform_dict = vegetarian
+        elif transform == "healthy":
+            transform_dict = to_healthy
+        elif transform == "Chinese":
+            transform_dict = to_chinese
+        elif transform == "Mexican":
+            transform_dict = to_mexican
+        else:
+            raise Exception("Transform does not exist")
 
-    print("Recipe Ingredients (before transformation): ")
-    print(ingredients)
-    print('\n')
+        try:
+            recipeSoup = getRecipe(url)
+        except:
+            print("Invalid URL")
+            exit(0)
 
-    print("Recipe Tools: ")
-    print(tools)
-    print('\n')
+        title = getTitle(recipeSoup)
+        ingredients = getIngredients(recipeSoup)[0]
+        steps = getSteps(recipeSoup)
+        tools = getTools(steps)
+        methods = getMethods(steps)
 
-    print("Recipe Methods: ")
-    print(methods)
-    print('\n')
+        print("Recipe Title: " + title + '\n')
 
-    print("Recipe Steps: (before transformation): ")
-    print(steps)
-    print('\n')
+        print("Recipe Ingredients (before transformation): ")
+        for i in range(0, len(ingredients)):
+            print(str(i + 1) + '. ' + ingredients[i]['name'])
+            print("quantity: " + ingredients[i]['quantity'])
+            print("measurement: " + ingredients[i]['measurement'])
+            print("descriptor: " + ingredients[i]['descriptor'])
+            print("preparation: " + ingredients[i]['preparation'] + '\n')
 
-    print("After transformation: " + '\n')
+        # print(ingredients)
+        # print('\n')
+        print("Recipe Tools: ")
+        for i in range(0, len(tools)):
+            print(str(i + 1) + '. ' + tools[i])
 
-    ingredients = getIngredients(recipeSoup)[1]
-    print(replace_ingredients(ingredients, transform_dict))
-    print(replace_instructions(steps, transform_dict, ingredients, transform))
-    recipeSoup = getRecipe(url)
+        print("\nRecipe Methods: ")
+        for i in range(0, len(methods)):
+            print(str(i + 1) + '. ' + methods[i])
+
+        print("\nRecipe Steps: (before transformation): ")
+        for i in range(0, len(steps)):
+            print(str(i + 1) + '. ' + steps[i])
+
+        print("\nAfter transformation: " + '\n')
+
+        ingredients = getIngredients(recipeSoup)[1]
+
+        new_ingredients = replace_ingredients(ingredients, transform_dict)
+        print("Ingredients: ")
+        for i in range(0, len(new_ingredients)):
+            print(str(i + 1) + '. ' + new_ingredients[i])
+
+        new_steps = replace_instructions(steps, transform_dict, ingredients, transform)
+        print("\nSteps: ")
+        for i in range(0, len(new_steps)):
+            print(str(i + 1) + '. ' + new_steps[i])
+
+        recipeUrl = input('\nPlease enter a URL for a recipe from AllRecipes.com (enter 0 to exit): ')
+        if recipeUrl == '0':
+            exit(0)
+        transformType = input('Please enter what transformation you would like (vegetarian, healthy, Chinese, Mexican): ')
+        main(recipeUrl, transformType)
+
 
 if __name__ == '__main__':
-    recipeUrl = input('Please enter a URL for a recipe from AllRecipes.com: ')
+    recipeUrl = input('Please enter a URL for a recipe from AllRecipes.com (enter 0 to exit): ')
+    if recipeUrl == '0':
+        exit(0)
     transformType = input('Please enter what transformation you would like (vegetarian, healthy, Chinese, Mexican): ')
     main(recipeUrl, transformType)
