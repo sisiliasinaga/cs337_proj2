@@ -47,7 +47,18 @@ def convertToFraction(test):
     except:
         return -1
 
-
+def convert_to_float(frac):
+    try:
+        return float(frac)
+    except ValueError:
+        num, denom = frac.split('/')
+        try:
+            leading, num = num.split(' ')
+            whole = float(leading)
+        except ValueError:
+            whole = 0
+        frac = float(num) / float(denom)
+        return whole - frac if whole < 0 else whole + frac
 
 def getRecipe(url):
     r = requests.get(url)
@@ -84,8 +95,8 @@ def getIngredients(soup):
             x = x.replace(numbers[0], str(numbers[1]))
             result.append(x)
 
-    getIngredientParts(result)
-    return result
+    x = getIngredientParts(result)
+    return x, result
 
 def getIngredientParts(ingredients):
 
@@ -118,7 +129,8 @@ def getIngredientParts(ingredients):
                 continue
 
             if test[i][1] == 'CD':
-                quantity += float(text[i])
+                x = convert_to_float(text[i])
+                quantity += x
 
             else:
                 if text[i] in measurements:
@@ -144,8 +156,12 @@ def getIngredientParts(ingredients):
                             ingredientName += text[i]
                     elif test[i][1] == 'RB':
                         #for adverbs, eg 'finely chopped'
-                        preparation += text[i] + ' ' + text[i + 1]
-                        shouldContinue = True
+                        if preparation != "":
+                            preparation += ' and ' + text[i] + ' ' + text[i + 1]
+                            shouldContinue = True
+                        else:
+                            preparation += text[i] + ' ' + text[i + 1]
+                            shouldContinue = True
                     elif test[i][1] == 'VBN' or test[i][1] == 'VBD':
                         if preparation != "":
                             preparation += ' and ' + text[i]
@@ -227,9 +243,34 @@ def main(url, transform):
         raise Exception("Transform does not exist")
 
     recipeSoup = getRecipe(url)
+    title = getTitle(recipeSoup)
+    ingredients = getIngredients(recipeSoup)[0]
     steps = getSteps(recipeSoup)
+    tools = getTools(steps)
+    methods = getMethods(steps)
+
+    print("Recipe Title: " + title + '\n')
+
+    print("Recipe Ingredients (before transformation): ")
+    print(ingredients)
+    print('\n')
+
+    print("Recipe Tools: ")
+    print(tools)
+    print('\n')
+
+    print("Recipe Methods: ")
+    print(methods)
+    print('\n')
+
+    print("Recipe Steps: (before transformation): ")
+    print(steps)
+    print('\n')
+
+    print("After transformation: " + '\n')
+
     print(replace_instructions(steps, transform_dict))
-    ingredients = getIngredients(recipeSoup)
+    ingredients = getIngredients(recipeSoup)[1]
     print(replace_ingredients(ingredients, transform_dict))
     recipeSoup = getRecipe(url)
 
