@@ -36,16 +36,14 @@ to_chinese = {
     "white rice": "jasmine scented rice",
     "corn": "bok choy",
     "ice cream": "baobing",
-    "tea": "chinese tea",
     "sausage": "lap ceung",
     "salsa": "mala sauce",
-    "maple syrup": "chinese mala syrup"
-}
+    "maple syrup": "chinese mala syrup",
 
-to_chinese_utensils = {
     "fork": "chopsticks",
     "frying pan": "wok",
     "pan": "wok",
+    "skillet": "wok",
     "rice cooker": "donabe",
     "cooker": "donabe",
     "spatula": "chuan",

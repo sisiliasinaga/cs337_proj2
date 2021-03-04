@@ -9,6 +9,8 @@ import string
 from transform import replace_ingredients, replace_instructions
 from vegetarian_transform import vegetarian
 from to_healthy_transform import to_healthy
+from to_chinese_transform import to_chinese
+from to_mexican_transform import to_mexican
 
 def convertToFraction(test):
     fractions = {
@@ -217,6 +219,10 @@ def main(url, transform):
         transform_dict = vegetarian
     elif transform == "healthy":
         transform_dict = to_healthy
+    elif transform == "Chinese":
+        transform_dict = to_chinese
+    elif transform == "Mexican":
+        transform_dict = to_mexican
     else:
         raise Exception("Transform does not exist")
 
@@ -229,5 +235,5 @@ def main(url, transform):
 
 if __name__ == '__main__':
     recipeUrl = input('Please enter a URL for a recipe from AllRecipes.com: ')
-    transformType = input('Please enter what transformation you would like (vegetarian or healthy): ')
+    transformType = input('Please enter what transformation you would like (vegetarian, healthy, Chinese, Mexican): ')
     main(recipeUrl, transformType)

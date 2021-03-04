@@ -13,7 +13,6 @@ to_healthy = {
     "flour": "coconut flour",
     "vegetable oil": "coconut oil",
     "white sugar": "cane sugar",
-    "sugar": "cane sugar",
     "flour tortilla": "corn tortilla",
     "flour tortillas": "corn tortillas",
     "eggs": "egg whites",
