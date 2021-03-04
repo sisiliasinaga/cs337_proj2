@@ -19,8 +19,8 @@ def replace_instructions(steps, replacement, ingrObjects, transformType):
         new_steps = steps.copy()
         for step in range(len(new_steps)):
             for repl in replacement:
-                if repl in steps[step].lower():
-                    new_steps[step] = steps[step].replace(repl, replacement[repl])
+                if repl in new_steps[step].lower():
+                    new_steps[step] = new_steps[step].replace(repl, replacement[repl])
 
     return new_steps
 
