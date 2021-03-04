@@ -221,10 +221,10 @@ def main(url, transform):
         raise Exception("Transform does not exist")
 
     recipeSoup = getRecipe(url)
-    steps = getSteps(recipeSoup)
-    print(replace_instructions(steps, transform_dict))
     ingredients = getIngredients(recipeSoup)
     print(replace_ingredients(ingredients, transform_dict))
+    steps = getSteps(recipeSoup)
+    print(replace_instructions(steps, transform_dict, ingredients, transform))
     recipeSoup = getRecipe(url)
 
 if __name__ == '__main__':
