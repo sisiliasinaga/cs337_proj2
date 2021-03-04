@@ -269,9 +269,9 @@ def main(url, transform):
 
     print("After transformation: " + '\n')
 
-    print(replace_instructions(steps, transform_dict))
     ingredients = getIngredients(recipeSoup)[1]
     print(replace_ingredients(ingredients, transform_dict))
+    print(replace_instructions(steps, transform_dict, ingredients, transform))
     recipeSoup = getRecipe(url)
 
 if __name__ == '__main__':

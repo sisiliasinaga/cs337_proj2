@@ -3,7 +3,6 @@ def replace_ingredients(ingrObjects, replacement):
     for ingr in range(len(new_ingredients)):
         for repl in replacement:
             if repl in new_ingredients[ingr].lower():
-                print("found it")
                 if repl is "sausage" and "veggie sausage" in new_ingredients[ingr].lower():
                     continue
                 if repl is "burger" and "bun" in new_ingredients[ingr].lower():
