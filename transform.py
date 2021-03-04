@@ -1,3 +1,6 @@
+import re
+
+
 def replace_ingredients(ingrObjects, replacement):
     new_ingredients = ingrObjects.copy()
     for ingr in range(len(new_ingredients)):
@@ -20,7 +23,11 @@ def replace_instructions(steps, replacement, ingrObjects, transformType):
         for step in range(len(new_steps)):
             for repl in replacement:
                 if repl in new_steps[step].lower():
-                    new_steps[step] = new_steps[step].replace(repl, replacement[repl])
+                    len_diff = len(replacement[repl]) - len(repl)
+                    all_index = [m.start() for m in re.finditer(repl, new_steps[step].lower())]
+                    for i in range(len(all_index)):
+                        index = all_index[i] + len_diff * i
+                        new_steps[step] = new_steps[step][:index] + replacement[repl] + new_steps[step][index + len(repl):]
 
     return new_steps
 
@@ -46,14 +53,18 @@ def replace_vegetarian(steps, replacement, ingrObjects):
             if repl in new_steps[step].lower():
                 if repl is "sausage" and "veggie sausage" in new_steps[step].lower():
                     continue
-                if repl is "burger" and "bun" in new_steps[step].lower():
+                elif repl is "burger" and "bun" in new_steps[step].lower():
                     continue
-                if repl is "beef" and gBeef is True:
+                elif repl is "beef" and gBeef is True:
                     new_steps[step] = new_steps[step].replace(repl, replacement['ground beef'])
-                if repl is "pork" and pork_loin is True:
+                elif repl is "pork" and pork_loin is True:
                     new_steps[step] = new_steps[step].replace(repl, replacement['pork loin'])
                 else:
-                    new_steps[step] = new_steps[step].replace(repl, replacement[repl])
+                    len_diff = len(replacement[repl]) - len(repl)
+                    all_index = [m.start() for m in re.finditer(repl, new_steps[step].lower())]
+                    for i in range(len(all_index)):
+                        index = all_index[i] + len_diff * i
+                        new_steps[step] = new_steps[step][:index] + replacement[repl] + new_steps[step][index + len(repl):]
         if "thigh" in new_steps[step] and chicken_thighs is True:
             new_steps[step] = new_steps[step].replace("thigh", replacement["chicken"])
         if "brisket" in new_steps[step] and corned_beef is True:
