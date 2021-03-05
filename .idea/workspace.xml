@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f468222f-37a9-40be-b741-6d6d04ccc7ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/from_healthy_transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/from_healthy_transform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/to_chinese_transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/to_chinese_transform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/to_healthy_transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/to_healthy_transform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/to_mexican_transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/to_mexican_transform.py" afterDir="false" />
-    </list>
+    <list default="true" id="f468222f-37a9-40be-b741-6d6d04ccc7ff" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
