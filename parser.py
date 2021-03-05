@@ -9,6 +9,7 @@ import string
 from transform import replace_ingredients, replace_instructions
 from vegetarian_transform import vegetarian
 from to_healthy_transform import to_healthy
+from from_healthy_transform import from_healthy
 from to_chinese_transform import to_chinese
 from to_mexican_transform import to_mexican
 
@@ -252,6 +253,8 @@ def main(url, transform):
             transform_dict = vegetarian
         elif transform == "healthy":
             transform_dict = to_healthy
+        elif transform == "non-healthy":
+            transform_dict = from_healthy
         elif transform == "Chinese":
             transform_dict = to_chinese
         elif transform == "Mexican":
@@ -320,5 +323,5 @@ if __name__ == '__main__':
     recipeUrl = input('Please enter a URL for a recipe from AllRecipes.com (enter 0 to exit): ')
     if recipeUrl == '0':
         exit(0)
-    transformType = input('Please enter what transformation you would like (vegetarian, healthy, Chinese, Mexican): ')
+    transformType = input('Please enter what transformation you would like (vegetarian, healthy, non-healthy, Chinese, Mexican): ')
     main(recipeUrl, transformType)

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f468222f-37a9-40be-b741-6d6d04ccc7ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/from_healthy_transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/from_healthy_transform.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +26,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="cs337_proj2" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="cs337_proj2" />
+      </console-settings>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="parser" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -30,9 +44,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\megha\miniconda3\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parser.py" />
@@ -45,6 +59,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -59,30 +74,35 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="208" y="136" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614829493448">
-      <screen x="0" y="0" width="1504" height="963" />
+    <state x="260" y="72" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614902949778">
+      <screen x="0" y="25" width="1680" height="1025" />
     </state>
     <state x="208" y="136" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1504.963@0.0.1504.963" timestamp="1614829493448" />
+    <state x="260" y="72" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.1025@0.25.1680.1025" timestamp="1614902949778" />
     <state x="533" y="236" key="FileChooserDialogImpl" timestamp="1614894324681">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="533" y="236" key="FileChooserDialogImpl/0.0.1504.963@0.0.1504.963" timestamp="1614894324681" />
-    <state width="1483" height="381" key="GridCell.Tab.0.bottom" timestamp="1614897006189">
-      <screen x="0" y="0" width="1504" height="963" />
+    <state width="1680" height="615" key="GridCell.Tab.0.bottom" timestamp="1614903747674">
+      <screen x="0" y="25" width="1680" height="1025" />
     </state>
     <state width="1483" height="381" key="GridCell.Tab.0.bottom/0.0.1504.963@0.0.1504.963" timestamp="1614897006189" />
-    <state width="1483" height="381" key="GridCell.Tab.0.center" timestamp="1614897006189">
-      <screen x="0" y="0" width="1504" height="963" />
+    <state width="1680" height="615" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1614903747674" />
+    <state width="1680" height="615" key="GridCell.Tab.0.center" timestamp="1614903747673">
+      <screen x="0" y="25" width="1680" height="1025" />
     </state>
     <state width="1483" height="381" key="GridCell.Tab.0.center/0.0.1504.963@0.0.1504.963" timestamp="1614897006189" />
-    <state width="1483" height="381" key="GridCell.Tab.0.left" timestamp="1614897006189">
-      <screen x="0" y="0" width="1504" height="963" />
+    <state width="1680" height="615" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1614903747673" />
+    <state width="1680" height="615" key="GridCell.Tab.0.left" timestamp="1614903747673">
+      <screen x="0" y="25" width="1680" height="1025" />
     </state>
     <state width="1483" height="381" key="GridCell.Tab.0.left/0.0.1504.963@0.0.1504.963" timestamp="1614897006189" />
-    <state width="1483" height="381" key="GridCell.Tab.0.right" timestamp="1614897006189">
-      <screen x="0" y="0" width="1504" height="963" />
+    <state width="1680" height="615" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1614903747673" />
+    <state width="1680" height="615" key="GridCell.Tab.0.right" timestamp="1614903747673">
+      <screen x="0" y="25" width="1680" height="1025" />
     </state>
     <state width="1483" height="381" key="GridCell.Tab.0.right/0.0.1504.963@0.0.1504.963" timestamp="1614897006189" />
+    <state width="1680" height="615" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1614903747673" />
     <state width="1483" height="450" key="GridCell.Tab.1.bottom" timestamp="1614894628278">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
@@ -99,20 +119,13 @@
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state width="1483" height="450" key="GridCell.Tab.1.right/0.0.1504.963@0.0.1504.963" timestamp="1614894628278" />
+    <state x="281" y="164" key="SettingsEditor" timestamp="1614902895875">
+      <screen x="0" y="25" width="1680" height="1025" />
+    </state>
+    <state x="281" y="164" key="SettingsEditor/0.25.1680.1025@0.25.1680.1025" timestamp="1614902895875" />
     <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1614896284718">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1614896284718" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/parser.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

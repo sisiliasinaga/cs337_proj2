@@ -25,7 +25,7 @@ from_healthy = {
     "avocado butter": "butter",
     "mashed cauliflower": "mashed potatoes",
     "milk": "creamer",
-    "olive oil and vinegar": "dressing",
+    "olive oil and vinegar": "salad dressing",
     "palm shortening": "shortening",
     "quinoa": "white rice",
     "smashed avocado": "jelly",
