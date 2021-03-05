@@ -7,7 +7,7 @@ from nltk import pos_tag, word_tokenize
 import re
 import string
 from transform import replace_ingredients, replace_instructions
-from vegetarian_transform import vegetarian
+from vegetarian_transform import vegetarian, not_vegetarian
 from to_healthy_transform import to_healthy
 from from_healthy_transform import from_healthy
 from to_chinese_transform import to_chinese
@@ -251,6 +251,8 @@ def main(url, transform):
 
         if transform == "vegetarian":
             transform_dict = vegetarian
+        elif transform == "non-vegetarian":
+            transform_dict = not_vegetarian
         elif transform == "healthy":
             transform_dict = to_healthy
         elif transform == "non-healthy":
@@ -315,7 +317,7 @@ def main(url, transform):
         recipeUrl = input('\nPlease enter a URL for a recipe from AllRecipes.com (enter 0 to exit): ')
         if recipeUrl == '0':
             exit(0)
-        transformType = input('Please enter what transformation you would like (vegetarian, healthy, Chinese, Mexican): ')
+        transformType = input('Please enter what transformation you would like (vegetarian, non-vegetarian, healthy, non-healthy, Chinese, Mexican): ')
         main(recipeUrl, transformType)
 
 
@@ -323,5 +325,5 @@ if __name__ == '__main__':
     recipeUrl = input('Please enter a URL for a recipe from AllRecipes.com (enter 0 to exit): ')
     if recipeUrl == '0':
         exit(0)
-    transformType = input('Please enter what transformation you would like (vegetarian, healthy, non-healthy, Chinese, Mexican): ')
+    transformType = input('Please enter what transformation you would like (vegetarian, non-vegetarian, healthy, non-healthy, Chinese, Mexican): ')
     main(recipeUrl, transformType)
