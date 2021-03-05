@@ -19,6 +19,7 @@ to_mexican = {
     'cheddar cheese': 'queso fresco',
     'american cheese': 'queso fresco',
     'swiss cheese': 'queso fresco',
+    'goat cheese': 'queso fresco',
     'lemon': 'lime',
     'lemon juice': 'lime juice',
     'coriander': 'paprika',
@@ -27,7 +28,8 @@ to_mexican = {
     'ginger root': 'habanero',
     'ginger': 'habanero',
     'olives': 'jalapenos',
-    "butter": "compound butter",
+    "extra-virgin olive oil": "vegetable oil",
+    'olive oil': "vegetable oil",
     "spinach": "mexican spinach",
     "sweet potato": "refried beans",
     "potato": "pinto bean",
@@ -35,5 +37,6 @@ to_mexican = {
     "soy sauce": "soy salsa",
     "barbeque sauce": "spicy salsa",
     "marinara sauce": "salsa",
-    "sauce": "salsa"
+    "sauce": "salsa",
+    "italian": "Mexican"
 }

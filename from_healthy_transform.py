@@ -26,11 +26,16 @@ from_healthy = {
     "mashed cauliflower": "mashed potatoes",
     "milk": "creamer",
     "olive oil and vinegar": "salad dressing",
+    "extra-virgin olive oil": "canola oil",
+    "olive oil": "canola oil",
     "palm shortening": "shortening",
     "quinoa": "white rice",
     "smashed avocado": "jelly",
     "whole-grain pasta": "pasta",
     "whole-grain spaghetti": "spaghetti",
     "whole wheat bread": "white bread",
-    "zucchini noodles": "noodles"
+    "zucchini noodles": "noodles",
+    "pine nuts": "croutons",
+    "dijon mustard": "yellow mustard",
+    "sesame seeds": "panko bread crumbs"
 }

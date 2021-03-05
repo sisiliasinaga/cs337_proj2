@@ -1,4 +1,5 @@
 to_chinese = {
+    "extra-virgin olive oil": "peanut oil",
     "olive oil": "peanut oil",
     "vegetable oil": "peanut oil",
     "canola oil": "peanut oil",
@@ -7,6 +8,7 @@ to_chinese = {
     "corn oil": "peanut oil",
     "sunflower oil": "peanut oil",
     "spaghetti pasta": "lo mein",
+    "linguine pasta": "lo mein",
     "pasta": "lo mein",
     "spaghetti": "lo mein",
     "penne": "lo mein",
@@ -15,12 +17,13 @@ to_chinese = {
     "red pepper flakes": "dried chili pepper",
     "italian parsley": "cilantro",
     "parmesan cheese": "fermented bean curd",
+    "cheddar cheese": "fermented bean curd",
     "parmesan": "fermented bean curd",
     "mushrooms": "shiitake mushrooms",
     "salad": "malatang",
     "quesadilla": "xian bing",
     "burger": "chinese hamburger",
-    "french pancake": "jian bing",
+    "pancake": "jian bing",
     "meat sauce": "da lu mian",
     "churro": "you tiao",
     "pizza": "scallion pancake",
@@ -30,7 +33,8 @@ to_chinese = {
     "pork": "mapo doufu",
     "meat": "bakkwa",
     "lamb": "lamb broth",
-    "sauce": "hoisin sauce",
+    "pasta sauce": "hoisin sauce",
+    "spaghetti sauce": "hoisin sauce",
     "shrimp": "cha jang mein",
     "tofu": "mapo tofu",
     "white rice": "jasmine scented rice",
@@ -39,9 +43,11 @@ to_chinese = {
     "sausage": "lap ceung",
     "salsa": "mala sauce",
     "maple syrup": "chinese mala syrup",
+    "panko bread crumbs": "sesame seeds",
 
     "fork": "chopsticks",
     "frying pan": "wok",
+    "saucepan": "wok",
     "pan": "wok",
     "skillet": "wok",
     "rice cooker": "donabe",
@@ -49,5 +55,6 @@ to_chinese = {
     "spatula": "chuan",
     "ladle": "hoak",
     "pot": "wok",
-    "steamers": "bamboo steamers"
+    "steamers": "bamboo steamers",
+    "italian": "Chinese"
 }

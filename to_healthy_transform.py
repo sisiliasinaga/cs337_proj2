@@ -3,10 +3,13 @@ to_healthy = {
     "milk": "almond milk",
     "croutons": "almonds",
     "corn starch": "arrowroot powder",
+    "parmesan cheese": "avocado",
+    "cheddar cheese": "avocado",
     "cheese": "avocado",
     "bagels": "toast",
     "beef stock": "red wine",
     "breadcrumbs": "chia seeds",
+    "canola oil": "olive oil",
     "chicken stock": "white wine",
     "chocolate chips": "cocoa nibs",
     "heavy cream": "coconut cream",
@@ -16,7 +19,6 @@ to_healthy = {
     "flour tortilla": "corn tortilla",
     "flour tortillas": "corn tortillas",
     "eggs": "egg whites",
-    "egg": "egg white",
     "fruit juice": "fruit-infused water",
     "salt": "himalayan salt",
     "corn syrup": "honey",
@@ -39,5 +41,8 @@ to_healthy = {
     "pasta": "whole-grain pasta",
     "spaghetti": "whole-grain spaghetti",
     "white bread": "whole wheat bread",
-    "noodles": "zucchini noodles"
+    "noodles": "zucchini noodles",
+    "compound butter": "avocado butter",
+    "yellow mustard": "Dijon mustard",
+    "panko bread crumbs": "sesame seeds"
 }
