@@ -314,11 +314,19 @@ def main(url, transform):
         for i in range(0, len(new_steps)):
             print(str(i + 1) + '. ' + new_steps[i])
 
-        recipeUrl = input('\nPlease enter a URL for a recipe from AllRecipes.com (enter 0 to exit): ')
-        if recipeUrl == '0':
+        nextStep = input("\nWould you like to choose a new transform or a new recipe? (transform or recipe): " )
+        if nextStep == 'transform':
+            transformType = input('Please enter what transformation you would like (vegetarian, non-vegetarian, healthy, non-healthy, Chinese, Mexican): ')
+            main(url, transformType)
+        elif nextStep == 'recipe':
+            recipeUrl = input('\nPlease enter a URL for a recipe from AllRecipes.com (enter 0 to exit): ')
+            if recipeUrl == '0':
+                exit(0)
+            transformType = input('Please enter what transformation you would like (vegetarian, non-vegetarian, healthy, non-healthy, Chinese, Mexican): ')
+            main(recipeUrl, transformType)
+        else:
+            print("Invalid entry")
             exit(0)
-        transformType = input('Please enter what transformation you would like (vegetarian, non-vegetarian, healthy, non-healthy, Chinese, Mexican): ')
-        main(recipeUrl, transformType)
 
 
 if __name__ == '__main__':
