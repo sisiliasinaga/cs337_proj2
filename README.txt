@@ -6,3 +6,6 @@ this recipe and prompt the user to apply a transformation to this recipe. The us
 choose to in any order until the user chooses to enter a different AllRecipes URL or terminate the program.
 
 Link to Github repo: https://github.com/yuiichiiros/cs337_proj2
+
+Github repos we got inspiration from:
+- https://github.com/amitadate/EECS-337-NLP-Project-02
