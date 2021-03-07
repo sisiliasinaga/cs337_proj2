@@ -242,7 +242,7 @@ def getMethods(directions):
 
     return resultList
 
-def main(url, transform):
+def main(url, transform, passed_steps, passed_ingredients):
     stillRunning = True
     if url == '0':
         stillRunning = False
@@ -270,46 +270,58 @@ def main(url, transform):
             print("Invalid URL")
             exit(0)
 
-        title = getTitle(recipeSoup)
-        ingredients = getIngredients(recipeSoup)[0]
-        steps = getSteps(recipeSoup)
-        tools = getTools(steps)
-        methods = getMethods(steps)
+        if passed_ingredients == None or passed_steps == None:
 
-        print("Recipe Title: " + title + '\n')
+            title = getTitle(recipeSoup)
+            ingredients = getIngredients(recipeSoup)[0]
+            steps = getSteps(recipeSoup)
+            tools = getTools(steps)
+            methods = getMethods(steps)
 
-        print("Recipe Ingredients (before transformation): ")
-        for i in range(0, len(ingredients)):
-            print(str(i + 1) + '. ' + ingredients[i]['name'])
-            print("quantity: " + ingredients[i]['quantity'])
-            print("measurement: " + ingredients[i]['measurement'])
-            print("descriptor: " + ingredients[i]['descriptor'])
-            print("preparation: " + ingredients[i]['preparation'] + '\n')
+            print("Recipe Title: " + title + '\n')
 
-        # print(ingredients)
-        # print('\n')
-        print("Recipe Tools: ")
-        for i in range(0, len(tools)):
-            print(str(i + 1) + '. ' + tools[i])
+            print("Recipe Ingredients (before transformation): ")
+            for i in range(0, len(ingredients)):
+                print(str(i + 1) + '. ' + ingredients[i]['name'])
+                print("quantity: " + ingredients[i]['quantity'])
+                print("measurement: " + ingredients[i]['measurement'])
+                print("descriptor: " + ingredients[i]['descriptor'])
+                print("preparation: " + ingredients[i]['preparation'] + '\n')
 
-        print("\nRecipe Methods: ")
-        for i in range(0, len(methods)):
-            print(str(i + 1) + '. ' + methods[i])
+            # print(ingredients)
+            # print('\n')
+            print("Recipe Tools: ")
+            for i in range(0, len(tools)):
+                print(str(i + 1) + '. ' + tools[i])
 
-        print("\nRecipe Steps: (before transformation): ")
-        for i in range(0, len(steps)):
-            print(str(i + 1) + '. ' + steps[i])
+            print("\nRecipe Methods: ")
+            for i in range(0, len(methods)):
+                print(str(i + 1) + '. ' + methods[i])
+
+            print("\nRecipe Steps: (before transformation): ")
+            for i in range(0, len(steps)):
+                print(str(i + 1) + '. ' + steps[i])
 
         print("\nAfter transformation: " + '\n')
 
+
         ingredients = getIngredients(recipeSoup)[1]
 
-        new_ingredients = replace_ingredients(ingredients, transform_dict)
+        if passed_ingredients == None:
+            new_ingredients = replace_ingredients(ingredients, transform_dict)
+        else:
+            new_ingredients = replace_ingredients(passed_ingredients, transform_dict)
+
         print("Ingredients: ")
         for i in range(0, len(new_ingredients)):
             print(str(i + 1) + '. ' + new_ingredients[i])
 
-        new_steps = replace_instructions(steps, transform_dict, ingredients, transform)
+        if passed_steps == None:
+            new_steps = replace_instructions(steps, transform_dict, ingredients, transform)
+        else:
+            new_steps = replace_instructions(passed_steps, transform_dict, ingredients, transform)
+
+
         print("\nSteps: ")
         for i in range(0, len(new_steps)):
             print(str(i + 1) + '. ' + new_steps[i])
@@ -317,16 +329,17 @@ def main(url, transform):
         nextStep = input("\nWould you like to choose a new transform or a new recipe? (transform or recipe): " )
         if nextStep == 'transform':
             transformType = input('Please enter what transformation you would like (vegetarian, non-vegetarian, healthy, non-healthy, Chinese, Mexican): ')
-            main(url, transformType)
+            main(url, transformType, new_steps, new_ingredients)
         elif nextStep == 'recipe':
             recipeUrl = input('\nPlease enter a URL for a recipe from AllRecipes.com (enter 0 to exit): ')
             if recipeUrl == '0':
                 exit(0)
             transformType = input('Please enter what transformation you would like (vegetarian, non-vegetarian, healthy, non-healthy, Chinese, Mexican): ')
-            main(recipeUrl, transformType)
+            main(recipeUrl, transformType, None, None)
         else:
             print("Invalid entry")
             exit(0)
+
 
 
 if __name__ == '__main__':
@@ -334,4 +347,4 @@ if __name__ == '__main__':
     if recipeUrl == '0':
         exit(0)
     transformType = input('Please enter what transformation you would like (vegetarian, non-vegetarian, healthy, non-healthy, Chinese, Mexican): ')
-    main(recipeUrl, transformType)
+    main(recipeUrl, transformType, None, None)
