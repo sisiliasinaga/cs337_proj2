@@ -9,3 +9,6 @@ Link to Github repo: https://github.com/yuiichiiros/cs337_proj2
 
 Github repos we got inspiration from:
 - https://github.com/amitadate/EECS-337-NLP-Project-02
+
+Stack Overflow Inspiration: 
+https://stackoverflow.com/questions/35012491/parse-%C2%BD-as-0-5-in-python-2-7
